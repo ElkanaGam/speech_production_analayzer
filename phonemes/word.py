@@ -28,11 +28,6 @@ class Word:
 			rhyme_start = cursor
 			if word[cursor] in {'a','e', 'i', 'o', 'u'}:
 				cursor += 1
-	# 		//realy not supossed to happen!
-	# 		else {
-	# 			System.out.println("somthing is very strangre here!");
-	# 			break;
-	# 		}
 			
 			rhyme_end = cursor
 			while (cursor < len(word) and word[cursor] not in {'a','e', 'i', 'o', 'u'}):
@@ -59,7 +54,7 @@ class Word:
 	def __str__(self):
 		return '.'.join(self.syllables_list)
 
-def _match_syylabe():
+def _match_syllabe(targert, production):
 	'''banana ->nana
 		get data from the find_dif function
 		mechanism: do match from the first syll not omited!
