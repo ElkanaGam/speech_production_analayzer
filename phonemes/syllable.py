@@ -1,7 +1,10 @@
 import json
+from pathlib import Path
 
+cwd = Path.cwd()
+file_path = cwd / 'phonemes'
 
-with open ('phonemes.json') as f:
+with open (file_path / 'phonemes.json') as f:
     data = json.load(f)
     ALPHABET = data['ALPHABET']
 
@@ -40,8 +43,9 @@ class Syllable:
         
         return syllable_parts
 
-    def __repr__(self) -> str:
-        return ''.join([self.syllable_parts[p] for p in self.parts]) 
+    def __str__(self) -> str:
+        s =  ''.join([self.syllable_parts[p] for p in self.parts]) 
+        return s
         
         
 
@@ -52,16 +56,3 @@ class Syllable:
    
 
 
-if __name__ == "__main__":
-    # s = Syllable ('bik', 1)
-    # print(s)
-    # for p in s.parts:
-    #     print(s.syllable_parts[p])
-
-
-    l = [[[]],[]],[],[[[],[]]]
-
-    f= []
-    # shalow_copy(l, 0,f)
-    costume_copy(l,[0],f)
-    print(f)

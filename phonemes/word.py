@@ -1,3 +1,5 @@
+from . syllable import Syllable
+
 class Word:
 	def __init__(self, word) -> None:
 		self.word = word.replace('sh', 'S').replace('ts', '&')
@@ -10,7 +12,9 @@ class Word:
 		for v in vowels:
 			cnt += word.count(v)
 		return cnt
-   
+	def __len__ (self):
+		return len(self.word)
+
    
 	def slice_syllable(self):
 		# pre_ussumeption!
@@ -45,14 +49,16 @@ class Word:
 				coda = cursor -1
 			if position == num_of_syllables:
 				coda = len(word)
-			syllables.append(self.word[left:coda])
+			
+			syllables.append(Syllable(self.word[left:coda], position))
 			left = coda
 			position += 1
 			cursor = left
 		return syllables
 
 	def __str__(self):
-		return '.'.join(self.syllables_list)
+		data = [str(e) for e in self.syllables_list ]
+		return '.'.join(data)
 
 def _match_syllabe(targert, production):
 	'''banana ->nana
