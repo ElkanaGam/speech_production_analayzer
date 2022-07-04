@@ -1,17 +1,18 @@
 from . syllable import Syllable
 
 class Word:
-	def __init__(self, word) -> None:
+	def __init__(self, word:str) -> None:
 		self.word = word.replace('sh', 'S').replace('ts', '&')
 		self.syllables_list = self.slice_syllable()
    
    
-	def get_syllables_num(self, word):
+	def get_syllables_num(self):
 		vowels = {'a','e', 'i', 'o', 'u'}
 		cnt = 0
 		for v in vowels:
-			cnt += word.count(v)
+			cnt += self.word.count(v)
 		return cnt
+	
 	def __len__ (self):
 		return len(self.word)
 
@@ -19,7 +20,7 @@ class Word:
 	def slice_syllable(self):
 		# pre_ussumeption!
 		syllables = []
-		num_of_syllables = self.get_syllables_num(self.word)
+		num_of_syllables = self.get_syllables_num()
 		word = self.word
 		position  = 1
 		left = 0

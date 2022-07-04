@@ -33,7 +33,10 @@ def _test_structure():
 ## testing matchin modules
 def _test_matching():
     print ('TESTING MATCHIN MECHANISM')
-    print (utils.match_syllable('banana', 'banana'))
+    assert utils.match_syllable('banana', 'banana') == [('ba', 'ba'), ('na', 'na'), ('na', 'na')]
+    assert (utils.match_syllable('banana', 'nana')) == [('ba', None), ('na', 'na'), ('na', 'na')]
+    assert (utils.match_syllable('otobus', 'bus'))  == [('o', None), ('to', None), ('bus', 'bus')]
+    assert (utils.match_syllable('otobus', 'us'))  == [('o', None), ('to', None), ('bus', 'us')]
     print('PASSED')
 
 

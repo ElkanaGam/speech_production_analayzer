@@ -15,8 +15,7 @@ def _comp_length(x:any, y:any)-> Boolean:
             return False
     except TypeError:
         print('types doesnt have len()')
-    finally:
-        return
+    
 
 with open('./phonemes/phonemes.json', 'r') as f:
     data = json.load(f)
@@ -30,20 +29,18 @@ def match_syllable(target, production):
     production = Word (production)
     matching_list =[]
     if _comp_length(target, production):
-        matching(target, production, matching)
-        return matching
+        matching(target, production,0, matching_list)
+        return matching_list
     # ommition has ocuured
-    index  = 0
-    offset = len(target) - len(production) + 1
-    roof = 100
-    for i in range (offset):
-        temp_sum = 0
-        for j in range(len(production)):
-            temp_sum += find_different(target.syllables_list[j+i], production.syllables_list[i])
-        if temp_sum < roof:
-            roof = temp_sum
-            index  = i
-        temp_sum = 0
+    offset = target.get_syllables_num() - production.get_syllables_num() + 1
+    temp_match  = 100
+    index = 0
+    i = 0
+    while i < offset:
+        if find_different(target.syllables_list[i], production.syllables_list[0]) < temp_match :
+            index= i
+            temp_match = find_different(target.syllables_list[i], production.syllables_list[0])
+        i += 1
     matching (target, production, index, matching_list)
     return matching_list
 
@@ -52,20 +49,20 @@ def match_syllable(target, production):
 def matching(target:Word, production:Word, index: int, total_list: list) ->None:
     temp_list = []
     for i in range (0, index):
-        part = (target.syllables_list[i], None)
+        part = (str(target.syllables_list[i]), None)
         total_list.append(part)
-    for i in range (index, target.get_syllables_num):
-        part = (target.syllables_list[i], production.syllables_list[i])
+    for i in range (production.get_syllables_num()):
+        part = (str(target.syllables_list[i+index]), str(production.syllables_list[i]))
         total_list.append(part)
-    for i in range (index+production.get_syllables_num, target.get_syllables_num):
-        part = (target.syllables_list[i], None)
+    for i in range (index+production.get_syllables_num(), target.get_syllables_num()):
+        part = (str(target.syllables_list[i]), None)
         total_list.append(part)
 
 def find_consonants_different(c1:str,c2:str)->int:
     total_score = 0
     characteristics = ['type','articulation_place','voicing']
     for c in characteristics:
-        if ALPHA_BET[c1][c] != ALPHA_BET[c1][2]:
+        if ALPHA_BET[c1][c] != ALPHA_BET[c2][c]:
             total_score += 1
     total_score += abs(ALPHA_BET[c1]['sonorant_rank']-ALPHA_BET[c2]['sonorant_rank'])
     return total_score
@@ -81,14 +78,17 @@ def find_cluster_different (s1:str, s2:str)->int:
     #production long than target
     if len(s2) > len (s1):
         total_score += 2
+        return total_score
     # production length <= target length
     elif len (s1) != len(s2):
         total_score += 1
     for i in range(len(s2)):
         total_score += find_consonants_different(s1[i], s2[i])
-    
+    return total_score
+
+
 def find_different (s1:Syllable, s2:Syllable)-> int:
-    onset_diff = find_cluster_different(s1.parts['onset'], s2.parts['onset'])
-    rhyme_diff = find_vowel_different(s1.parts['rhyme'], s2.parts['rhyme'])
-    coda_diff = find_cluster_different(s1.parts['coda'], s2.parts['coda'])
-    return onset_diff+rhyme_diff+coda_diff
+    onset_diff = find_cluster_different(s1.syllable_parts['onset'], s2.syllable_parts['onset'])
+    rhyme_diff = find_vowel_different(s1.syllable_parts['rhyme'], s2.syllable_parts['rhyme'])
+    coda_diff = find_cluster_different(s1.syllable_parts['coda'], s2.syllable_parts['coda'])
+    return  (onset_diff+rhyme_diff+coda_diff)
