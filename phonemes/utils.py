@@ -7,6 +7,9 @@ from . syllable import Syllable
 import json
 
 
+def _is_here():
+    print('Imporeted')
+
 def _comp_length(x:any, y:any)-> Boolean:
     try: 
         if len(x) == len(y):
