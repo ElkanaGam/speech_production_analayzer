@@ -9,7 +9,7 @@ from pathlib import Path
 cwd = Path.cwd()
 dest = cwd  / 'phonemes'
 
-from phonemes import utils, word
+from phonemes import utils, word, analayse_consonants , Syllable
 
 
 
@@ -41,12 +41,22 @@ def _test_matching():
 
 
 
+def _test_compare_part():
+    print ('TESTING COMPRASION MECHANISM')
+    analayse_consonants.compare('b','b')
+    analayse_consonants.compare('b','p')
+    print(analayse_consonants.df)
+    print(analayse_consonants.ERRORS_TABLE)
+
+
 if __name__ == '__main__':
-    print ('Enter data : struct | match ')
+    print ('Enter data : struct | match | compare ')
     test_input = input() 
     if test_input == 'struct':
         _test_structure()
     elif  test_input == 'match':
         _test_matching()
+    elif test_input == 'compare':
+        _test_compare_part()
     else:
         print ('TEST WAS NOT EXECUTED')

@@ -19,133 +19,153 @@
        "repr":"b",
        "articulation_place":"labial",
         "voicing": true,
-        "sonorant_rank":5
+        "sonorant_rank":5,
+        "fronitzation": 0
+
     },
     "g":{"class":"consonants",
         "type":"plosive",
         "repr":"g",
         "articulation_place":"velar",
          "voicing": true,
-         "sonorant_rank":5
+         "sonorant_rank":5,
+         "fronitzation":5
      },
      "d":{"class":"consonants",
          "type":"plosive",
         "repr":"d",
         "articulation_place":"daental",
          "voicing": true,
-         "sonorant_rank":5
+         "sonorant_rank":5,
+         "fronitzation":2
      },
      "k":{"class":"consonants",
          "type":"plosive",
         "repr":"k",
         "articulation_place":"valar",
          "voicing": false,
-         "sonorant_rank":5
+         "sonorant_rank":5,
+         "fronitzation":5
      },
      "t":{"class":"consonants",
          "type":"plosive",
         "repr":"t",
         "articulation_place":"dantal",
          "voicing": false,
-         "sonorant_rank":5
+         "sonorant_rank":5, 
+         "fronitzation":2
      },
      "p":{"class":"consonants",
          "type":"plosive",
         "repr":"p",
         "articulation_place":"labial",
          "voicing": false,
-         "sonorant_rank":5
+         "sonorant_rank":5, 
+         "fronitzation":0
      },
      "h":{"class":"consonants",
         "type":"fricative",
         "repr":"h",
         "articulation_place":"glotal",
          "voicing": false,
-         "sonorant_rank":4
+         "sonorant_rank":4, 
+         "fronitzation":5
      },
      "v":{"class":"consonants",
         "type":"fricative",
         "repr":"v",
         "articulation_place":"labial",
          "voicing": true,
-         "sonorant_rank":4
+         "sonorant_rank":4,
+         "fronitzation":1
      },
      "z":{"class":"consonants",
         "type":"fricative",
         "repr":"z",
         "articulation_place":"dental",
          "voicing": true,
-         "sonorant_rank":4
+         "sonorant_rank":4, 
+         "fronitzation":2
      },
      "x":{"class":"consonants",
         "type":"fricative",
         "repr":"x",
         "articulation_place":"uvelar",
          "voicing": false,
-         "sonorant_rank":4
+         "sonorant_rank":4, 
+         "fronitzation":5
      },
      "s":{"class":"consonants",
         "type":"fricative",
         "repr":"s",
         "articulation_place":"dental",
          "voicing": false,
-         "sonorant_rank":4
+         "sonorant_rank":4, 
+         "fronitzation":2
      },
      "r":{"class":"consonants",
         "type":"fricative",
         "repr":"r",
         "articulation_place":"uvelar",
          "voicing": true,
-         "sonorant_rank":4
+         "sonorant_rank":4, 
+         "fronitzation":5
      },
      "f":{"class":"consonants",
         "type":"fricative",
         "repr":"f",
         "articulation_place":"labial",
          "voicing": false,
-         "sonorant_rank":4
+         "sonorant_rank":4,
+         "fronitzation":1
      },
      "S":{"class":"consonants",
         "type":"fricative",
         "repr":"sh",
         "articulation_place":"postdantal",
          "voicing": false,
-         "sonorant_rank":4
+         "sonorant_rank":4, 
+         "fronitzation":3
      },
      "j":{"class":"consonants",
         "type":"glide",
         "repr":"j",
         "articulation_place":"palatal",
          "voicing": true,
-         "sonorant_rank":2
+         "sonorant_rank":2, 
+         "fronitzation":4
      },
      "l":{"class":"consonants",
         "type":"glide",
         "repr":"l",
         "articulation_place":"dental",
          "voicing": true,
-         "sonorant_rank":2
+         "sonorant_rank":2,
+         "fronitzation":3
      },
      "&":{"class":"consonants",
         "type":"deafricative",
         "repr":"ts",
         "articulation_place":"dental",
          "voicing": false,
-         "sonorant_rank":4
+         "sonorant_rank":4,
+         "fronitzation":2
      },
      "m":{"class":"consonants",
         "type":"nasal",
         "repr":"m",
         "articulation_place":"labial",
          "voicing": true,
-         "sonorant_rank":3
+         "sonorant_rank":3, 
+         "fronitzation":0
      },
      "n":{"class":"consonants",
         "type":"nasal",
         "repr":"n",
         "articulation_place":"dental",
          "voicing": true,
-         "sonorant_rank":2
+         "sonorant_rank":2, 
+         "fronitzation":2
      }
 }
 }
