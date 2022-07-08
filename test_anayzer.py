@@ -21,3 +21,9 @@ def _test_consonants_analisis():
 
 
 _test_consonants_analisis()
+
+
+## TO DO:
+## finish df comprasion
+## add type errors comprasion 
+## think how to transgfer from utils to analyzer!!
